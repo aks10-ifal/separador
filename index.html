@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Separador de Nome</title>
+</head>
+<body>
+    <h1>Separador de Nome</h1>
+    <form id="nameForm">
+        Nome Completo: <input type="text" id="fullName" required>
+        <button type="button" id="separateButton">Separar</button>
+    </form>
+    <p id="firstNameResult"></p>
+    <p id="lastNameResult"></p>
+
+    <script>
+        document.getElementById('separateButton').addEventListener('click', function () {
+            const fullName = document.getElementById('fullName').value;
+            const nameArray = fullName.split(' ');
+
+            if (nameArray.length >= 2) {
+                const firstName = nameArray[0];
+                const lastName = nameArray.slice(1).join(' ');
+
+                document.getElementById('firstNameResult').textContent = `Nome: ${firstName}`;
+                document.getElementById('lastNameResult').textContent = `Sobrenome: ${lastName}`;
+            } else {
+                alert('Por favor, insira um nome completo com pelo menos um nome e um sobrenome.');
+            }
+        });
+    </script>
+</body>
+</html>
